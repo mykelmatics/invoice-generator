@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import WorkOrder from "../WorkOrder/WorkOrder";
 
 import "./style.css";
 
@@ -23,6 +24,7 @@ const handleSubmit = () => {
     navigate('/invoice')
     
 }
+
   return (
     <>
       <div className="invoice">
@@ -97,17 +99,12 @@ const handleSubmit = () => {
               placeholder="Enter email addreess"
               required
             ></input>
-          </div>
+            <WorkOrder/>
 
-          {/* <label for="item-name">Item Name:</label>
-            <input type="text" id="item-name" placeholder="Enter item name" required></input>
-            <label for="quantity">Quantity:</label>
-            <input type="number" id="quantity" placeholder="Enter quantity" required></input>
-            <label for="rate">Rate:</label>
-            <input type="number" id="rate" placeholder="Enter rate" required></input>
-            <label for="amount">Amount:</label> */}
+            <button onClick={() => handleSubmit()} className="submitBtn">Generate Invoice</button>
+          </div>           
         </form>
-        <button onClick={() => handleSubmit()} className="submitBtn">Submit</button>
+        
       </div>
     </>
   );

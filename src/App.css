@@ -6,6 +6,7 @@
   max-width: 1080px;
   background-color: #fff;
   margin: auto;
+  margin-bottom: 10px;
 }
 /* invoice header */
 .invoice-header {
@@ -14,6 +15,7 @@
 }
 .invoice-title-container {
   padding: 36px 0;
+  text-align: left;
 }
 .invoice-title {
   font-family: Roboto;
@@ -289,4 +291,84 @@ z-index: 40;
 font-weight: 700;
 line-height: 1; /* 100% */
 
+}
+.invoice-recipent {
+  text-align: left;
+  white-space: nowrap;
+}
+
+.order-wrapper{
+  margin-top: 30px;
+}
+.form-container {
+  margin-bottom: 12px;
+}
+.textArea{
+  background: #fff !important;
+  font-size: 14px !important;
+  color: #000 !important;
+  outline: none !important;
+}
+.addItem{
+  display: block;
+ margin-right: 45px;
+  margin-left: auto;
+  padding: 10px 15px;
+  font-size: 16px;
+  background-color: #fba677;
+  color: #fff;
+  border-radius: 3px;
+  outline: none;
+  border: none;
+  width: fit-content;
+  cursor: pointer;
+}
+.orders-header {
+ display: flex;
+ font-size: 18px;
+ font-weight: 500;
+ justify-content: space-between;
+
+}
+.orders-desc {
+  width: 150px;
+}
+.orders-table {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.orders-col{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+  margin-bottom: 8px
+}
+.order-title-col, .orders-title{
+  width: 100px;
+}
+.order-amt-col, .orders-amt{
+  width: 80px;
+}
+.order-rate-col, .orders-rate{
+  width: 80px;
+  /* text-align: center; */
+}
+.order-rate-col, .order-amt-col {
+  text-align: center;
+}
+.order-desc-col{
+  width: 150px;
+}
+.delBtn{
+  color: red;
+  font-size: 16px;
+  cursor: pointer;
+}
+@media print {
+  body {
+     -webkit-print-color-adjust: exact;
+  }
+  .printBtn{
+    display: none;
+  }
 }

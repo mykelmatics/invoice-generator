@@ -1,6 +1,8 @@
-import React, {useEffect} from 'react'
+import React from 'react';
+import moment from 'moment'
 
-const Invoice = ({companyName,companyAddress,companyEmail,customerName,customerAddress,customerEmail}) => {
+const Invoice = ({companyName,companyAddress,companyEmail,customerName,customerAddress,customerEmail, items, total}) => {
+    const invoiceNumber = Math.floor(Math.random() * 100)
 
   return (
     <main className="invoice-container">
@@ -25,9 +27,9 @@ const Invoice = ({companyName,companyAddress,companyEmail,customerName,customerA
                 Invoice <span className="separator">|</span> {customerName}
               </div>
               <p className="invoice-number">
-                No.<span className="date">0000</span> | Date{" "}
+                No.<span className="date">00{invoiceNumber}</span> | Date{" "}
                 <span contenteditable className="date">
-                  00.00.2022
+                 {moment().format('DD. MM. YYYY')}
                 </span>
               </p>
             </div>
@@ -76,16 +78,21 @@ const Invoice = ({companyName,companyAddress,companyEmail,customerName,customerA
               <div className="hours">HRS</div>
               <div className="amount">AMOUNT</div>
             </div>
-            <div className="table-content">
-              <div className="descText">
-                <div className="descTitle">Design</div>
-                <div className="descT">Description here</div>
-              </div>
-              <div className="rateCol">	€600</div>
-              <div className="hrsCol">1</div>
-              <div className="amtCol">	€600</div>
-
-            </div>
+            {items.length && items.map((item)=>{
+                return(
+                    <div className="table-content">
+                    <div className="descText">
+                      <div className="descTitle">{item.title}</div>
+                      <div className="descT">{item.description}</div>
+                    </div>
+                    <div className="rateCol">€{item.amount}</div>
+                    <div className="hrsCol">{item.rate}</div>
+                    <div className="amtCol">	€{item.rate * item.amount}</div>
+      
+                  </div>
+                )
+            })}
+      
           </div>
         </div>
         <div className="subtotal-content">
@@ -102,8 +109,8 @@ const Invoice = ({companyName,companyAddress,companyEmail,customerName,customerA
                   <p>BTW 21%</p>
                 </div>
                 <div className="discAmt">
-                  <p>$600</p>
-                  <p>$600</p>
+                  <p>€{total}</p>
+                  <p>€{.21 * total}</p>
                 </div>
 
               </div>
@@ -111,7 +118,7 @@ const Invoice = ({companyName,companyAddress,companyEmail,customerName,customerA
         </div>
         <div className="totalAmtContainer">
           <div>TOTAL</div>
-          <div className="totalAmt"><span>$600</span></div>
+          <div className="totalAmt"><span>€{total}</span></div>
         </div>
       </main>
   )
